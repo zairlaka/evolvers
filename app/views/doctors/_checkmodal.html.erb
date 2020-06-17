@@ -1,0 +1,45 @@
+
+<!-- Modal -->
+<div class="modal" id="checkmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Check Availabe Doctors</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <%= form_with url: check_available_doc_doctors_path, id: "check_form" do |form| %>
+        
+        <div class="form-group">
+        <%= form.label :start_time %>
+            <%# form.datetime_select :start_time, class: "form-control" %>
+            <div class='input-group date' id='start'>
+                <%= form.text_field :start_time, class: "form-control", required: true %>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+
+  <div class="form-group">
+    <%= form.label :end_time %>
+    <%# form.datetime_select :end_time, class: "form-control" %>
+    <div class='input-group date' id='end'>
+        <%= form.text_field :end_time, class: "form-control" , required: true, disabled: true%>
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+  </div>
+
+       <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-xs" data-dismiss="modal">Close</button>
+        <button type="button" id="check_submit"class="btn btn-primary btn-xs">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Doctors</h1>
+
+<div id="table-data">
+  <%= render partial: 'doctor_datatable', locals: {doctors: @doctors}%>
+</div>
+
+<br>
+
+<%= link_to 'New Doctor', new_doctor_path, class:"btn btn-default btn-sm" %>
+
+<%= link_to 'All Appointments', appointments_path , class:"btn btn-default btn-sm" %>
+
+<%# link_to 'Available Doctors', available_docters_path , class:"btn btn-default btn-sm" %>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#checkmodal">
+  Check Available
+</button>
+
+<%= render 'checkmodal' %>

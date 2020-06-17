@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @doctor.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @doctor.phone %>
+</p>
+
+<p>
+  <strong>Specialist:</strong>
+  <%= @doctor.specialist %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @doctor.bio %>
+</p>
+
+<%= link_to 'Edit', edit_doctor_path(@doctor), class: "btn btn-secondary btn-sm mt-4" %>
+<%= link_to 'Back', doctors_path, class: "btn btn-secondary btn-sm mt-4" %>
