@@ -65,8 +65,6 @@ class DoctorsController < ApplicationController
     start_time = params[:start]
     end_time = params[:end]
   
-    #Club.left_outer_joins(:club_members).where("club_members.is_assigned =true OR club_members.is_assigned is null")
-    #books = Doctor.left_outer_join(:appointments).where(appointments: { start_time: DateTime.now })
     doctors = []
     #  Doctor.all.each do |d|
     #   doctors << d if d.appointments.blank?
@@ -76,9 +74,7 @@ class DoctorsController < ApplicationController
     #     end
     #   end
     # end
-    doctors = Doctor.is_free(start_time,end_time)
-    # binding.pry
-    # @doctors = Appointment.where(start_time <= end_time || start_time >= end_time )
+    doctors = Doctor.are_free(start_time,end_time)
     
     render partial: 'doctor_datatable', locals: {doctors: doctors}
   end
