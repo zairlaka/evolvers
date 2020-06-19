@@ -24,3 +24,12 @@
 //for datepicker
 //= require moment
 //= require bootstrap-datetimepicker
+
+$(document).ready(function () {
+    $(".f_time").each(function (i,v){
+        //$(this).html(moment($(this)).format('ddd, MMMM Do YYYY, h:mm:ss a'))
+        var time = moment(v.innerText).format('ddd, MMMM Do YYYY, h:mm:ss a')
+        v.innerText = time
+
+    })
+})

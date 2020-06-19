@@ -64,16 +64,19 @@ class DoctorsController < ApplicationController
   def check_available_doc
     start_time = params[:start]
     end_time = params[:end]
+  
+    #Club.left_outer_joins(:club_members).where("club_members.is_assigned =true OR club_members.is_assigned is null")
+    #books = Doctor.left_outer_join(:appointments).where(appointments: { start_time: DateTime.now })
     doctors = []
-    # @doctors = Doctor.all.where.not(start_time: params[])
-     Doctor.all.each do |d|
-      doctors << d if d.appointments.blank?
-      d.appointments.each do |a|
-        if (a.end_time <= params[:start] or a.start_time >= params[:end])
-          doctors << d
-        end
-      end
-    end
+    #  Doctor.all.each do |d|
+    #   doctors << d if d.appointments.blank?
+    #   d.appointments.each do |a|
+    #     if (a.end_time <= params[:start] or a.start_time >= params[:end])
+    #       doctors << d
+    #     end
+    #   end
+    # end
+    doctors = Doctor.is_free(start_time,end_time)
     # binding.pry
     # @doctors = Appointment.where(start_time <= end_time || start_time >= end_time )
     

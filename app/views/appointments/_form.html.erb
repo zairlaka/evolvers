@@ -14,7 +14,11 @@
   <div class="form-group">
     <%= form.label :start_time %>
     <%# form.datetime_select :start_time, class: "form-control" %>
+    <% if params[:action] == "edit"%>
+      <p class="f_time form-control"><%= @appointment.start_time%></p>
+    <%end%>
     <div class='input-group date' id='app-start'>
+      
         <%= form.text_field :start_time, class: "form-control", required: true %>
         <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
@@ -25,6 +29,9 @@
   <div class="form-group">
     <%= form.label :end_time %>
     <%# form.datetime_select :end_time, class: "form-control" %>
+    <% if params[:action] == "edit"%>
+      <p class="f_time form-control"><%= @appointment.end_time%></p> 
+    <%end%>
     <div class='input-group date' id='app-end'>
         <%= form.text_field :end_time, class: "form-control" , required: true, disabled: true%>
         <span class="input-group-addon">
