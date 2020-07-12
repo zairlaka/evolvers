@@ -13,7 +13,7 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
-// require turbolinks
+//= require turbolinks
 //= require_tree .
 
 //for bootstrap 4
@@ -25,7 +25,7 @@
 //= require moment
 //= require bootstrap-datetimepicker
 
-$(document).ready(function () {
+$(document).on('turbolinks:load',function () {
     $(".f_time").each(function (i,v){
         //$(this).html(moment($(this)).format('ddd, MMMM Do YYYY, h:mm:ss a'))
         var time = moment(v.innerText).format('ddd, MMMM Do YYYY, h:mm:ss a')
